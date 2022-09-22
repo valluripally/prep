@@ -1,0 +1,98 @@
+Angular Js
+
+1.AngularJS services are the singleton objects or functions that are used for carrying out specific tasks. It holds some business logic.
+2.The ng-bind directive tells AngularJS to replace the content of an HTML element with the value of a given variable, or expression.
+3.If the value of the given variable, or expression, changes, the content of the specified HTML element will be changed as well.
+4.Digest cycle is what Angular JS triggers when a value in the model or view is changed.
+5.The cycle sets off the watchers which then match the value of model and view to the newest value.
+6.Digest cycle automatically runs when the code encounters a directive.
+7.The scope of the digest cycle is limited to that of Angular JS context.
+8.To synchronise changes in view and model that happen outside the Angular context, manual application of $apply() or $digest() is necessary.
+9.  The $apply() and $digest() methods are used to update the model properties forcefully.
+10.  The $digest() method evaluate watchers for the current scope but $apply() method is used to evaluate watchers for root scope that means it's for all scopes.
+11.  The $apply() method is used to update entire scope variables and bind model properties forcefully.
+12.  The $apply() method is slower than $digest() method because $digest() function trigger watchers on current $scope but $apply() function trigger watchers on entire scopes.
+13.  If any error occurs in watch list while using $digest() function it will not handle exceptions with $expectionHandler service we need to write our own custom code to handle it but if we use $apply() function internally it’s having try catch functionality to catch the errors while using watch list and send it to $exceptionHandler service.
+14. The steps for the compilation process of HTML?
+     Compilation of HTML process occurs in the following ways
+     Using the standard browser API, first, the HTML is parsed into DOM
+     By using the call to the $compile () method, a compilation of the DOM is performed. The method traverses the DOM and matches the directives.
+     Link the template with a scope by calling the linking function returned from the previous step
+15.Different types of directives are:
+
+1) Element directives
+
+2) Attribute directives
+
+3) CSS class directives
+
+4) Comment directives.
+
+16.What are compile & link Options in Custom directives?
+
+Understanding the compile vs. link option is one of the more advanced topics across AngularJS, and it gives us a feel for how Angular actually works. Out of both the functions the link function is used very often. 
+Basically both are mutually exclusive i.e. if both the options are set then compile will overwrite the link functions defined. 
+The concept of compile and link comes from C language, where you first compile the code and then link it to actually execute it. 
+The process is very much similar in AngularJS as well.
+Compile: It traverses the DOM and collects all of the directives and deals with transforming the template DOM. The result is a linking function.
+Link: The link function deals with linking scope to the DOM.	
+The signature is of the pre-link function is same as that of a post-link. The only difference between the pre-link and a post-link is the order they gets executed.
+for pre {
+} this function gets executed before linking of scope and template.
+for post , that gets executed after scope and template is linked.
+
+17.factory function in AngularJS?
+For creating the directive, factory method is used. It is invoked only once when the compiler matches the directive for the first time. By using $injector.invoke the factory method is invoked.
+18.The ng-dirty class tells you that the form has been modified by the user, whereas the ng-pristine class tells you that the form has not been modified by the user. So ng-dirty and ng-pristine are two sides of the same story.
+19.DI or Dependency Injection is a software design pattern that deals with how code gets hold of its dependencies. In order to retrieve elements of the application which is required to be configured when the module gets loaded, the operation “config” uses dependency injection
+20.The ng-non-bindable Directive in AngularJS is used to specify that the specific content of HTML should not be compiled i.e the contents should be ignored by AngularJS. It can be used when we want to display code snippets instead of compiled output.
+21.Orderby filter in AngularJS orders the array based on specified criteria
+<li ng-repeat = "company in product.products | orderBy:'price">
+      {{ company.product + ', price:' + product.price }}
+   </li>
+22.double click event of AgularJS let you to specify custom behavior on double click event of mouse on a web page like:
+23.Ng-include in AngularJS helps you to embed HTML pages within a single HTML page. Example:
+24 To set, get, and clear cookies in AngularJS?
+You can use:
+$cookies.put() method to set the cookies.
+$cookies.get() method to get the cookies.
+$cookies.remove to remove cookies in AngularJS.
+25.Angular Global API functions
+Some commonly used Angular Global API functions are:
+
+Angular.isString: It will return true only if the given reference is of type string.
+Angular.lowercase: It converts any string to lowercase
+Angular.uppercase: It converts any string to uppercase.
+Angular.isNumber: It returns true only if the reference is a numeric value or number.
+
+26.BOM or Browser Object Model consists of history, object navigator, screen location, etc. It specifies the global browser objects like console, local storage, and window.
+27. The ngApp directive designates the root element of the application and is typically placed near the root element of the page
+28.only one AngularJS application can be auto-bootstrapped per HTML document. The first ngApp found in the document will be used to define the root element to auto-bootstrap as an application. To run multiple applications in an HTML document you must manually bootstrap them using angular.bootstrap instead.
+29.ngView is a directive that complements the $route service by including the rendered template of the current route into the main layout (index.html) file. Every time the current route changes, the included view changes with it according to the configuration of the $route service.
+30.The syntax of Factory is as follows:
+app.factory(‘serviceName’,function(){ return serviceObj;})
+31.Webpack is a module bundler for Angular2 or above. It bundles, transpiles, and minifies AngularJS application.
+32.For Auto bootstrapping 
+AngularJS find the ng-app directive that is the root of angular app compilation. When ng-app directive is found, AngularJS do the following steps:
+
+1) load the module, which is associated with the directive,
+
+2) Create application injector,
+
+3) Compile the DOM from the ng-app root element. This process is known as auto bootstrapping.
+33.What is immediately invoked function expressions?
+IIFEs or Immediately Invoked Function Expressions is a function that executes as soon as it is created. It offers a simple way to isolate the variable declaration. IIFEs contains two major functions:
+
+1) operator()
+
+2) expression()
+34. What is a Traceur Compiler?
+Traceur is a JavaScript compiler that uses classes, generators, and other features from ECMAScript.
+
+35.Types of filters used in AngularJS are: 1) Currency, 2) Uppercase, 3) Lowercase, 4) orderBy, 5) JSON, and 6) limitTo.
+36.What is transclusion in AngularJS?
+The transclusion in AngulaJS enables developers to reallocate the original directive children into a specific location within a template. 
+The directive ng shows the insertion point for a transcluded DOM of the nearest parent directive, which is using transclusion.
+ Ng-transclude-slot or ng-transclude directives are mainly used for transclusion.
+37.In angularJS, pipes can have more than one parameter in order to tune the fine output. You can create a parameterized pipe by declaring the pipe with colon(:) and values of parameter. Developer can separate multiple parameter values with colon(:).
+38.In angular, pipes provide a simple method to transform the data. It takes the values like arrays, integers, data, and strings as input and divided with pipe (|) symbol. It converts the data in the required format. Pipes displays the same thing in the browser. In angularJS, it provides some in-built pipes, but developers can also develop their own pipes.
